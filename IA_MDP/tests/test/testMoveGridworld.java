@@ -24,7 +24,7 @@ public class testMoveGridworld {
 				GridworldEnvironnement g = new GridworldEnvironnement(gmdp);
 	
 				VueGridworldManuel vue = new VueGridworldManuel(g);
-				vue.setVisible(true);
+			vue.setVisible(true);
 				
 				
 				
