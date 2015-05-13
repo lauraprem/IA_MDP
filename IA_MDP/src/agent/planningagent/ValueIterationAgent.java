@@ -54,7 +54,7 @@ public class ValueIterationAgent extends PlanningValueAgent {
 		List<Etat> listEtat = this.getMdp().getEtatsAccessibles();
 		for (Etat etat : listEtat) {
 			listAction = this.getMdp().getActionsPossibles(etat);
-			if (!etat.estTerminal() && ancient_values[etat.indice()] == 0) {
+			if (!etat.estTerminal() ) {
 				double maxAction = -1000;
 				for (Action action : listAction) {
 					double somme = 0;
@@ -63,7 +63,7 @@ public class ValueIterationAgent extends PlanningValueAgent {
 						for (Etat etatsAtteignables : proba.keySet()) {
 							double recompense = this.getMdp().getRecompense(etat, action, etatsAtteignables);
 							somme += proba.get(etatsAtteignables) * (recompense + this.gamma * ancient_values[etatsAtteignables.indice()]);
-						}
+						} 
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
