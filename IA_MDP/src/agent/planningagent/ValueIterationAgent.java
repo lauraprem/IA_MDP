@@ -20,7 +20,6 @@ public class ValueIterationAgent extends PlanningValueAgent {
 
 	private double gamma;
 	private double[] values;
-	private List<Action>[] actions;
 
 	/**
 	 * 
@@ -31,7 +30,6 @@ public class ValueIterationAgent extends PlanningValueAgent {
 		super(mdp);
 		this.gamma = gamma;
 		this.values = new double[mdp.getNbEtats()];
-		this.actions = new List[mdp.getNbEtats()];
 		for (int i = 0; i < mdp.getNbEtats(); i++) {
 			this.values[i] = 0;
 		}
@@ -72,7 +70,6 @@ public class ValueIterationAgent extends PlanningValueAgent {
 				this.vmax = Math.max(this.vmax, maxAction);
 				this.vmin = Math.min(this.vmin, maxAction);
 				this.values[etat.indice()] = maxAction;
-				this.actions[etat.indice()] = this.getMdp().getActionsPossibles(etat);
 			}
 		}
 
